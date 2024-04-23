@@ -17,6 +17,6 @@
 ## Getting Started
 Make sure you have Node.js installed, if not check out this link: https://nodejs.org/en/download
 1. Download the code as a ZIP folder and extract it to a folder
-2. In an IDE such as VSCode, navigate to the downloaded folder and run "npm install" in the terminal
+2. In an IDE such as VS Code, navigate to the downloaded folder and run "npm install" in the terminal
 3. Afterwards, run "npm run dev" in the terminal
 
