@@ -1,0 +1,159 @@
+#root {
+  max-width: 1280px;
+  max-height:1080px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: white;
+  color: black;
+}
+
+.option {
+  width: 100%;
+  flex: 1;
+  cursor: pointer;
+  padding: .75rem;
+}
+
+.option:hover{
+  background-color: #EEF4FA;
+}
+
+.option_selected {
+  background-color: #EEF4FA;
+}
+
+
+
+.dropdown_b {
+  display: block;
+  width: 100%;
+  background-color: #fff; /* White background */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  color:black;
+  height: 60px;
+  overflow: hidden;
+  border-radius: 0.375rem;
+  padding: .125rem;
+}
+
+.dropdown {
+  display: block;
+  flex-direction: column;
+  gap: 0rem;
+  width: 280px;
+  height: 280px;
+  border-radius: 0.375rem;
+  margin-top: 1rem;
+}
+
+.dropdown_content, .multi_dropdown_content {
+  display:flex;
+  position: relative;
+  flex-direction: column;
+  left: 0;
+  width: 100%;
+  max-height: 200px;
+  margin-top: 0.25rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  text-align: left;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Shadow effect */
+  border-radius: 0.375rem;
+  padding: 0rem;
+}
+
+.multi_dropdown_content > div {
+  padding: 1rem;
+}
+
+.multi_dropdown_content > div > label {
+  display: inline-block;
+  width: 90%;
+}
+
+.button_opened {
+  outline: #6997d9 solid 2px;
+}
+
+.option > button {
+  width: 100%;
+  background-color: white;
+  padding: 1rem;
+  color: black;
+  text-align: start;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.option  > button:focus {
+  background-color: #EEF4FA;
+  border: none;
+}
+
+
+.truncate_text {
+  white-space: nowrap;       /* Prevent text from wrapping */
+  overflow: hidden;          /* Hide overflowing text */
+  text-overflow: ellipsis;   /* Display ellipsis (...) for truncated text */
+  max-width: 80%;   
+}
+
+
+input[type=checkbox] {
+  position: relative;
+  cursor: pointer;
+}
+
+input[type=checkbox]:before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 0;
+  left: 0;
+  border: 1px solid #9D9D9D;
+  border-radius: 3px;
+  padding: 1px;
+  background-color: #FFFFFF;
+}
+
+input[type=checkbox]:checked:before {
+  background-color: #3874CC;
+}
+
+input[type=checkbox]:checked:after {
+  content: "";
+  display: block;
+  width: 2px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+  top: 2px;
+  left: 6px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+  background:#C1C1C1;
+  border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+  background:#5E8ED6;
+  }
