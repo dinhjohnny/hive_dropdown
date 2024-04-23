@@ -39,6 +39,20 @@
   padding: .125rem;
 }
 
+
+
+.container {
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between;
+  align-items: center; /* Align items vertically in the center */
+}
+
+.dropdown-arrow {
+  width: 20px; /* Set the width of the image */
+  height: 20px; /* Set the height of the image */
+  padding-right: 1rem;
+}
+
 .dropdown {
   display: block;
   flex-direction: column;

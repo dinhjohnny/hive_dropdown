@@ -1,4 +1,5 @@
 import { useState } from "react";
+import dropdownArrow from '../src/assets/drop-down-arrow.png';
 
 export default function Dropdown ({label, options, multi}) {
 
@@ -24,12 +25,19 @@ export default function Dropdown ({label, options, multi}) {
         <>
         <div className="dropdown">
             {label}
-
             <div className={`dropdown_b ${isDropdownDisplayed && "button_opened"}`} onClick= {() => setIsDropdownDisplayed((prev) => !prev)}>
+                
                 {selectedOptions.length > 0 ? (
-                <p className="truncate_text">{selectedOptions.join(', ')}</p>
+                <div className="container">
+                    <p className="truncate_text">{selectedOptions.join(', ')}</p>
+                    <img className="dropdown-arrow" src={dropdownArrow}></img>
+                </div>
+
                 ) : (
-                <p>Select {label}</p>
+                    <div className="container">
+                        <p>Select {label}</p>
+                        <img className="dropdown-arrow" src={dropdownArrow}></img>
+                    </div>
                 )}
             </div>
             {/* Multi-select Component*/}
