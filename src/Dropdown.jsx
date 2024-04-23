@@ -1,10 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import dropdownArrow from '../src/assets/drop-down-arrow.png';
+import upArrow from '../src/assets/up-arrow.png';
 
 export default function Dropdown ({label, options, multi_select}) {
 
     const [selectedOptions, setSelectedOptions] = useState([]);
     const [isDropdownDisplayed, setIsDropdownDisplayed] = useState(false);
+    const dropdownRef = useRef(null);
 
 
     // Handles selected option state
@@ -21,29 +23,42 @@ export default function Dropdown ({label, options, multi_select}) {
         setSelectedOptions([optionValue]);
     }
 
+    const handleClickOutside = (event) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+            setIsDropdownDisplayed(false);
+        }
+    };
 
-    useEffect( () => {
-        console.log(selectedOptions);
-    }, [selectedOptions])
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
 
+
+    { /* Uncomment to view options state
+        useEffect( () => {
+            console.log(selectedOptions);
+        }, [selectedOptions])
+    */ }
     return (
         <>
-        <div className="dropdown">
-            {label}
-
+        <div className="dropdown" ref={dropdownRef}>
+            <p className={"label " + (isDropdownDisplayed ? "label_colored" : "")}>{label}</p>
             {/* Dropdown button */}
-            <div className={`dropdown_b ${isDropdownDisplayed && "button_opened"}`} onClick= {() => setIsDropdownDisplayed((prev) => !prev)}>
+            <div className={"dropdown_b " + (isDropdownDisplayed ? "button_opened" : "")} onClick= {() => setIsDropdownDisplayed((prev) => !prev)}>
                 
                 {selectedOptions.length > 0 ? (
                 <div className="container">
                     <p className="truncate_text">{selectedOptions.join(', ')}</p>
-                    <img className="dropdown-arrow" src={dropdownArrow}></img>
+                    {isDropdownDisplayed? <img className="dropdown-arrow" src={upArrow}></img> : <img className="dropdown-arrow" src={dropdownArrow}></img>}
                 </div>
 
                 ) : (
                     <div className="container">
                         <p>Select {label}</p>
-                        <img className="dropdown-arrow" src={dropdownArrow}></img>
+                        {isDropdownDisplayed? <img className="dropdown-arrow" src={upArrow}></img> : <img className="dropdown-arrow" src={dropdownArrow}></img>}
                     </div>
                 )}
             </div>
@@ -52,7 +67,7 @@ export default function Dropdown ({label, options, multi_select}) {
                 <div className="multi_dropdown_content">
                     {options.map((option) => (
                             <div key={option} className="">
-                                <label className={`option ${selectedOptions.includes(option) && "option_selected"}`} htmlFor={`input-${option}`}><input id={`input-${option}`} type="checkbox" checked={selectedOptions.includes(option)} value={option} onChange={()=> handleOptionChange(option)}></input>{option}</label>
+                                <label className={"option " + (selectedOptions.includes(option) ? "option_selected" : "")} htmlFor={`input-${option}`}><input id={`input-${option}`} type="checkbox" checked={selectedOptions.includes(option)} value={option} onChange={()=> handleOptionChange(option)}></input>{option}</label>
                             </div>
                     ))}
                 </div>
@@ -62,7 +77,7 @@ export default function Dropdown ({label, options, multi_select}) {
                 <div className="dropdown_content">
                     {options.map((option) => (
                             <div key={option} className="">
-                                <div className={`option ${selectedOptions.includes(option) ? "option_selected" : "" }`} onClick={()=> handleSingleOptionChange(option)}>{option}</div>
+                                <div className={"option " + (selectedOptions.includes(option) ? "option_selected" : "" )} onClick={()=> handleSingleOptionChange(option)}>{option}</div>
                             </div>
                     ))}
                 </div>

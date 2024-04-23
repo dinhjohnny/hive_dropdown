@@ -19,3 +19,7 @@ Make sure you have Node.js installed, if not check out this link: https://nodejs
 2. In an IDE such as VS Code, navigate to the downloaded folder and run "npm install" in the terminal
 3. Afterwards, run "npm run dev" in the terminal
 
+If you want to create your own component with your own data make sure to:
+- pass in the appropriate props for label, options, and multi_select
+- ex shown here "<Dropdown label={"Age"} options={age} multi_select={false}></Dropdown>"
+

@@ -22,6 +22,15 @@
   padding: .125rem;
 }
 
+.label {
+  margin: 0;
+  padding: 0;
+}
+
+.label_colored {
+  color: #578AD3;
+}
+
 .container {
   display: flex; /* Use flexbox for layout */
   justify-content: space-between;
@@ -29,8 +38,8 @@
 }
 
 .dropdown-arrow {
-  width: 20px; /* Set the width of the image */
-  height: 20px; /* Set the height of the image */
+  width: 12px; /* Set the width of the image */
+  height: 12px; /* Set the height of the image */
   padding-right: 1rem;
 }
 
