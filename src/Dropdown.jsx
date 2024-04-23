@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import dropdownArrow from '../src/assets/drop-down-arrow.png';
 
-export default function Dropdown ({label, options, multi}) {
+export default function Dropdown ({label, options, multi_select}) {
 
     const [selectedOptions, setSelectedOptions] = useState([]);
     const [isDropdownDisplayed, setIsDropdownDisplayed] = useState(false);
@@ -21,10 +21,17 @@ export default function Dropdown ({label, options, multi}) {
         setSelectedOptions([optionValue]);
     }
 
+
+    useEffect( () => {
+        console.log(selectedOptions);
+    }, [selectedOptions])
+
     return (
         <>
         <div className="dropdown">
             {label}
+
+            {/* Dropdown button */}
             <div className={`dropdown_b ${isDropdownDisplayed && "button_opened"}`} onClick= {() => setIsDropdownDisplayed((prev) => !prev)}>
                 
                 {selectedOptions.length > 0 ? (
@@ -41,7 +48,7 @@ export default function Dropdown ({label, options, multi}) {
                 )}
             </div>
             {/* Multi-select Component*/}
-            {isDropdownDisplayed && multi && (
+            {isDropdownDisplayed && multi_select && (
                 <div className="multi_dropdown_content">
                     {options.map((option) => (
                             <div key={option} className="">
@@ -51,11 +58,11 @@ export default function Dropdown ({label, options, multi}) {
                 </div>
             )}
             {/* Single-select Component*/}
-            {isDropdownDisplayed && !multi && (
+            {isDropdownDisplayed && !multi_select && (
                 <div className="dropdown_content">
                     {options.map((option) => (
-                            <div key={option} className={`option ${selectedOptions.includes(option) ? "option_selected" : "" }`}>
-                                <div className="option_label" onClick={()=> handleSingleOptionChange(option)}>{option}</div>
+                            <div key={option} className="">
+                                <div className={`option ${selectedOptions.includes(option) ? "option_selected" : "" }`} onClick={()=> handleSingleOptionChange(option)}>{option}</div>
                             </div>
                     ))}
                 </div>

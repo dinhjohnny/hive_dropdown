@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Dropdown from './Dropdown';
 import './App.css'
 
@@ -11,8 +10,8 @@ function App() {
   return (
     <>
         <div className="body">
-          <Dropdown label={"Tag"} options={names} multi={true}></Dropdown>
-          <Dropdown label={"Age"} options={age} multi={false}></Dropdown>
+          <Dropdown label={"Tag"} options={names} multi_select={true}></Dropdown>
+          <Dropdown label={"Age"} options={age} multi_select={false}></Dropdown>
         </div>
     </>
   )
