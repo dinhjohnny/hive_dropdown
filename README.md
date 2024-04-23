@@ -8,8 +8,8 @@
 - Component supports single selected option or multiple selected options
 - Component has 3 props label, options, and multi_select
   - label: small label for the component
-    - options: array of desired choices
-    - multi_select: true allows multi-selection, false specifies single selection
+  - options: array of desired choices
+  - multi_select: true allows multi-selection, false specifies single selection
 - Selected options are visible when the dropdown is closed
 - Added subtle highlighting and outlining when interacting for a more friendly UX
 
