@@ -5,12 +5,11 @@
 ## Functionality
 - Created a drop-down component that allows users to select options, which are stored in React states for developer usage
 - Users can open and close the drop-down menu
-- Component supports single selected option or multiple selected options by specifying prop "multi_select" as true/false
-    - Component has 3 props label, options, and multi_select
-        - label: small label for the component
-        - options: array of desired choices
-        - multi_select: true allows multi-selection, false specifies single selection
-    
+- Component supports single selected option or multiple selected options
+- Component has 3 props label, options, and multi_select
+  - label: small label for the component
+    - options: array of desired choices
+    - multi_select: true allows multi-selection, false specifies single selection
 - Selected options are visible when the dropdown is closed
 - Added subtle highlighting and outlining when interacting for a more friendly UX
 
